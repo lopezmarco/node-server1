@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
+const port = process.env.PORT || 3000;  //object that stores system env variables, if it doesnt exist set it to 3000
 
 //dirección para parciales como footer y header
 hbs.registerPartials(__dirname + '/views/partials');
@@ -42,6 +43,6 @@ app.get('/about', (req, res) => {
 	});
 });
 
-app.listen(3000, () => {
-	console.log("Server on");
+app.listen(port, () => {
+	console.log("Server on: " + port);
 });
